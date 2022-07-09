@@ -1,11 +1,11 @@
-----------------------------------------------------------------------
---
---   Docker Cheatsheet
---   Prepared By: Ankit Ojha
---   URL: ankitojha.com.np
---   Update on: July 10, 2022
---
-----------------------------------------------------------------------
+########################################################################
+##
+##   Docker Cheatsheet
+##   Prepared By: Ankit Ojha
+##   URL: ankitojha.com.np
+##   Update on: July 10, 2022
+##
+########################################################################
 
 
 ## Registry and Repositories Commands:
@@ -39,6 +39,7 @@
 ## Image Commands:
 ------------------
 - Listing images            ->      docker images
+- Listing dangling images   ->      docker images -f dangling=true
 - Building from Dockerfile  ->      docker build /path/to/build/file
 - Building and tagging      ->      docker build -t <imgName> /path/to/build/file
 - Loading image from a tar  ->      docker load < <file.tar.gz>
@@ -49,6 +50,12 @@
 
 ## Cleaning Docker:
 --------------------
-- Remove stopped container  ->      docker rm <containerName>
-- Remove running container  ->      docker rm -f <containerName>
-- Remove all exited cont.   ->      docker rm `docker ps -a -f status=exited -q`
+- Removing stopped cont.    ->      docker rm <containerName>
+- Removing running cont.    ->      docker rm -f <containerName>
+- Removing all exited cont. ->      docker rm `docker ps -a -f status=exited -q`
+- Removing an image         ->      docker rmi <imgName>
+- Removing image forcefully ->      docker rmi -f <imgName>
+- Removing dangling images  ->      docker rmi -f `docker images -f dangling=true -q`
+- Removing all images       ->      docker rmi -f `docker images -a -q`
+
+
