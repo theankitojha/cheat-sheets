@@ -57,5 +57,7 @@
 - Removing image forcefully ->      docker rmi -f <imgName>
 - Removing dangling images  ->      docker rmi -f `docker images -f dangling=true -q`
 - Removing all images       ->      docker rmi -f `docker images -a -q`
+- Removing all unused       ->      docker system prune -f
+- Removing everything       ->      docker system prune -a
 
 
