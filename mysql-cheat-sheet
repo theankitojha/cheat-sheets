@@ -1,0 +1,36 @@
+########################################################################
+##
+##   MYSQL Cheatsheet
+##   Prepared By: Ankit Ojha
+##   URL: https://ankitojha.com.np
+##   Update on: October 13, 2022
+##
+########################################################################
+
+## Creating a dump:
+-------------------
+ - In .sql file		->	mysqldump -u <userName> -p <dbName> > <dbName>.sql
+ - In .gz form		->	mysqldump -u <userName> -p <dbName> | gzip > <dbName>.sql.gz
+
+
+## Extracting from a dump:
+--------------------------
+ - From .sql file	->	mysql -u <userName> -p <dbName> < /path-to-sql-file
+ - From .sql.gz file	->	gzip -d <fileName>.gz (Convert to .sql file, then use above command)
+
+
+## Granting a user permission to a specific database:
+-----------------------------------------------------
+GRANT ALL PRIVILEGES ON <dbName>.* TO '<userName>'@'<host>';
+
+
+## Granting a user permission to all databases in the system:
+-------------------------------------------------------------
+GRANT ALL PRIVILEGES ON *.* TO '<userName>'@'<host';
+
+
+## Query all rows of a table in pretty format:
+----------------------------------------------
+SELECT * FROM <tableName> \G;
+
+
